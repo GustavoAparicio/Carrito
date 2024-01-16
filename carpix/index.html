@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cuenta Regresiva</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    #timer {
+      font-size: 24px;
+      font-weight: bold;
+      color: #333;
+    }
+    #buttons {
+      margin-top: 20px;
+    }
+    button {
+      font-size: 16px;
+      padding: 10px 20px;
+      margin: 0 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="timer">30</div>
+
+  <div id="buttons">
+    <button onclick="correct()">Correcto</button>
+    <button onclick="incorrect()">Incorrecto</button>
+  </div>
+
+  <script>
+    // Set the initial countdown value
+    let countdown = 30;
+
+    // Function to update the countdown display
+    function updateCountdown() {
+      document.getElementById('timer').textContent = countdown;
+    }
+
+    // Function to handle the countdown and update UI
+    function countdownFunction() {
+      updateCountdown();
+      if (countdown > 0) {
+        countdown--;
+        setTimeout(countdownFunction, 1000);
+      }
+    }
+
+    // Function to handle the "Correcto" button click
+    function correct() {
+      alert('¡Correcto!');
+    }
+
+    // Function to handle the "Incorrecto" button click
+    function incorrect() {
+      alert('Incorrecto :(');
+    }
+
+    // Start the countdown when the page loads
+    window.onload = function() {
+      countdownFunction();
+    };
+  </script>
+
+</body>
+</html>
